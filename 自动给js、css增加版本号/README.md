@@ -8,7 +8,9 @@
 
 ### 文件名-hash 字符串.后缀版本
 
-这种版本 github 在用执行前
+这种版本 github 在用
+
+执行前
 
 ```html
 <link rel="stylesheet" type="text/css" href="../css/base.min.css" />
@@ -34,7 +36,9 @@ gulp
 
 ### ?v=的形式
 
-这种版本国内各大网站比较普遍需要修改下 node_modules 包
+这种版本国内各大网站比较普遍
+
+需要修改下 node_modules 包
 
 ```bash
 打开node_modules\gulp-rev\index.js
