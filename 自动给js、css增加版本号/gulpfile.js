@@ -42,7 +42,6 @@ gulp.task('replace', function() {
 })
 gulp.task('default', function() {
   runSequence('del', 'move', ['revCss', 'revJs'], 'replace', function() {
-    del('build/**/*.json') // 最终步  干掉那些对比文件的json
     console.log('success')
   })
 })
