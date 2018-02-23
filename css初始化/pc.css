@@ -2,17 +2,6 @@
  * Use a better box model (opinionated).
  */
 
- html {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-}
-
-*,
-*::before,
-*::after {
-	-webkit-box-sizing: inherit;
-	        box-sizing: inherit;
-}
 
 /**
  * Use a more readable tab size (opinionated).
@@ -48,7 +37,8 @@ blockquote,
 th,
 td {
 	margin: 0;
-	padding: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
