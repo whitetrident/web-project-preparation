@@ -337,9 +337,9 @@ table {
   left: 0;
   background-color: rgba(207, 207, 207, 0.3);
   width: 1px;
-  height: 200%;
-  -webkit-transform: scaleY(0.5);
-  transform: scaleY(0.5);
+  height: 100%;
+  -webkit-transform: scaleX(0.5);
+  transform: scaleX(0.5);
   -webkit-transform-origin: 0 0;
   transform-origin: 0 0;
 }
