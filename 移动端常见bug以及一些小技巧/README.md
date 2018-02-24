@@ -101,6 +101,23 @@ function isIphone() {
 }
 ```
 
+_注意，如果是固定定位元素，那么水平居中使用 left: 50%;transform: translate(-50%, -50%);的方式，左边会有 1px 的缝隙对不齐，这时候应该_
+
+```css
+ {
+  left: auto;
+  right: auto;
+}
+```
+
+或者
+
+```css
+ {
+  transform: translateY(0);
+}
+```
+
 ---
 
 ### 点击事件不灵敏
