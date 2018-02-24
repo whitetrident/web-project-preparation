@@ -114,6 +114,7 @@ _注意，如果是固定定位元素，那么水平居中使用 left: 50%;trans
 
 ```css
  {
+  left: 0;
   transform: translateY(0);
 }
 ```
