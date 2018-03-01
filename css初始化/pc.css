@@ -31,8 +31,6 @@ ul {
 }
 
 body {
-  max-width: 540px;
-  min-width: 320px;
   background-color: #fff;
   margin: 0 auto;
   -webkit-text-size-adjust: 100%;
