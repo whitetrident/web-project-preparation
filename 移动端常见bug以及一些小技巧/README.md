@@ -1,10 +1,5 @@
 # 移动端一些 bug 处理收集及小技巧
 
-### css 批量命令行加前缀兼容
-
-[css 批量命令行加前缀兼容](https://github.com/whitetrident/css-hack 'css批量命令行加前缀兼容')
-
----
 
 ### css 三角
 
