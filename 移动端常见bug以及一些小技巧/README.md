@@ -735,21 +735,13 @@ input type 设 tel
 ```css
 div {
   overflow-x: scroll;
-  overflow-y: hidden;
   -webkit-overflow-scrolling: touch;
   white-space: nowrap;
   font-size: 0;
-  -webkit-text-size-adjust: none;
 }
 a {
   display: inline-block;
-  height: 100%;
-  line-height: 50px;
   font-size: 16px;
-  box-sizing: border-box;
-  padding: 0 10px;
-  text-align: center;
-  border: 1px solid black;
   /*解决ios端行内块出现的不对齐*/
   vertical-align: top;
 }
