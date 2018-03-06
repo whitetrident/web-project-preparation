@@ -1,6 +1,5 @@
 # 移动端一些 bug 处理收集及小技巧
 
-
 ### css 三角
 
 [用纯 CSS 实现的箭头](http://ourjs.com/detail/532bc9f36922aa7e1d000001 '用纯CSS实现的箭头')
@@ -798,3 +797,17 @@ a {
 ```
 
 注意必须设个宽，flex 的最后一项 flex-basis（伸缩基准值）才会有效，这里无论设 width 或者 min-width 都行，min-width 能兼容到火狐
+
+---
+
+### 控制台打印增加样式
+
+不懂的学习下es6的模板字符串
+```js
+console.log(
+  `%c 新的商城 %c ${new Date()} %c`,
+  'background:#1a191e ; padding: 1px; border-radius: 3px 0 0 3px;  color: #fff; font-size:30px',
+  'background:#bea474 ; padding: 1px; border-radius: 0 3px 3px 0;  color: #fff; font-size:30px',
+  'background:transparent'
+)
+```
