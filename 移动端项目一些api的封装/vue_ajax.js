@@ -99,91 +99,110 @@ axios.interceptors.response.use(
 
 export default {
   // 必选参数url，可选参数params，callback
-  get (url, param, callback, errcallback) {
-    if (param && typeof param === 'function') {
-      if (callback) {
-        errcallback = callback
-      }
-      callback = param
-      param = undefined
+  get(obj) {
+    const defaults = {
+      isLoading: true,
+      url: '#',
+      data: {},
+      success: res => {},
+      error: err => {}
     }
-    store.commit('updateLoadingStatus', {
-      isLoading: true
-    })
+    objectAssign(defaults, obj)
+    if (defaults.isLoading) {
+      store.commit('updateLoadingStatus', {
+        isLoading: true
+      })
+    }
     return new Promise((resolve, reject) => {
       axios({
         method: 'get',
-        url,
-        params: param,
+        url: defaults.url,
+        params: defaults.data,
         cancelToken: new CancelToken(c => {
           cancel = c
         })
       })
         .then(res => {
-          setTimeout(() => {
-            store.commit('updateLoadingStatus', {
-              isLoading: false
-            })
-          }, 200)
+          if (defaults.isLoading) {
+            setTimeout(() => {
+              store.commit('updateLoadingStatus', {
+                isLoading: false
+              })
+            }, 200)
+          }
           resolve(res)
-          if (callback && typeof callback === 'function') {
-            callback(res)
+          if (defaults.success && typeof defaults.success === 'function') {
+            defaults.success(res)
           }
         })
         .catch(err => {
-          store.commit('updateLoadingStatus', {
-            isLoading: false
-          })
+          if (defaults.isLoading) {
+            setTimeout(() => {
+              store.commit('updateLoadingStatus', {
+                isLoading: false
+              })
+            }, 200)
+          }
           reject(err)
-          if (errcallback && typeof errcallback === 'function') {
-            errcallback()
+          if (defaults.error && typeof defaults.error === 'function') {
+            defaults.error(err)
           }
         })
     })
   },
-  post (url, param, callback, errcallback) {
-    if (param && typeof param === 'function') {
-      if (callback) {
-        errcallback = callback
-      }
-      callback = param
-      param = undefined
+  post(obj) {
+    const defaults = {
+      isLoading: true,
+      url: '#',
+      data: {},
+      success: res => {},
+      error: err => {}
     }
-    store.commit('updateLoadingStatus', {
-      isLoading: true
-    })
+    objectAssign(defaults, obj)
+    if (defaults.isLoading) {
+      store.commit('updateLoadingStatus', {
+        isLoading: true
+      })
+    }
     return new Promise((resolve, reject) => {
       axios({
         method: 'post',
-        url,
-        data: qs.stringify(param),
+        url: defaults.url,
+        data: qs.stringify(defaults.data),
         cancelToken: new CancelToken(c => {
           cancel = c
         })
       })
         .then(res => {
-          setTimeout(() => {
-            store.commit('updateLoadingStatus', {
-              isLoading: false
-            })
-          }, 200)
+          if (defaults.isLoading) {
+            setTimeout(() => {
+              store.commit('updateLoadingStatus', {
+                isLoading: false
+              })
+            }, 200)
+          }
           resolve(res)
-          if (callback && typeof callback === 'function') {
-            callback(res)
+          if (defaults.success && typeof defaults.success === 'function') {
+            defaults.success(res)
           }
         })
         .catch(err => {
-          store.commit('updateLoadingStatus', {
-            isLoading: false
-          })
+          if (defaults.isLoading) {
+            setTimeout(() => {
+              store.commit('updateLoadingStatus', {
+                isLoading: false
+              })
+            }, 200)
+          }
           reject(err)
-          if (errcallback && typeof errcallback === 'function') {
-            errcallback()
+
+          if (defaults.error && typeof defaults.error === 'function') {
+            defaults.error(err)
           }
         })
     })
   },
-  changeToken (token) {
+  changeToken(token) {
     sessionStorage.setItem('token', token)
     axios.defaults.headers['Token'] = token
   }
