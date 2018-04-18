@@ -98,14 +98,12 @@ axios.interceptors.response.use(
 )
 
 export default {
-  // 必选参数url，可选参数params，callback
-  get(obj) {
+   // 必选参数url，可选参数params
+   get(obj) {
     const defaults = {
       isLoading: true,
       url: '#',
-      data: {},
-      success: res => {},
-      error: err => {}
+      data: {}
     }
     objectAssign(defaults, obj)
     if (defaults.isLoading) {
@@ -131,9 +129,6 @@ export default {
             }, 200)
           }
           resolve(res)
-          if (defaults.success && typeof defaults.success === 'function') {
-            defaults.success(res)
-          }
         })
         .catch(err => {
           if (defaults.isLoading) {
@@ -144,9 +139,6 @@ export default {
             }, 200)
           }
           reject(err)
-          if (defaults.error && typeof defaults.error === 'function') {
-            defaults.error(err)
-          }
         })
     })
   },
@@ -154,9 +146,7 @@ export default {
     const defaults = {
       isLoading: true,
       url: '#',
-      data: {},
-      success: res => {},
-      error: err => {}
+      data: {}
     }
     objectAssign(defaults, obj)
     if (defaults.isLoading) {
@@ -182,9 +172,6 @@ export default {
             }, 200)
           }
           resolve(res)
-          if (defaults.success && typeof defaults.success === 'function') {
-            defaults.success(res)
-          }
         })
         .catch(err => {
           if (defaults.isLoading) {
@@ -195,10 +182,6 @@ export default {
             }, 200)
           }
           reject(err)
-
-          if (defaults.error && typeof defaults.error === 'function') {
-            defaults.error(err)
-          }
         })
     })
   },
