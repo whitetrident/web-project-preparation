@@ -2,23 +2,22 @@
 ::after,
 ::before {
   -webkit-box-sizing: inherit;
-          box-sizing: inherit;
+  box-sizing: inherit;
   -webkit-tap-highlight-color: transparent;
 }
 
 html {
   -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   color: black;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
     Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
   font-size: 12px;
   -webkit-user-select: none;
-          user-select: none;
+  user-select: none;
   touch-action: manipulation;
   -webkit-text-size-adjust: none;
-          text-size-adjust: none;
-  -webkit-overflow-scrolling: touch;
+  text-size-adjust: none;
 }
 
 body,
@@ -37,7 +36,8 @@ body {
   background-color: #fff;
   margin: 0 auto;
   -webkit-text-size-adjust: 100%;
-          text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  -webkit-overflow-scrolling: touch;
 }
 /* 阻止遮罩层滑动 */
 body.bodyCls {
@@ -100,7 +100,7 @@ table {
 /* 输入框自动填充的背景色 */
 input:-webkit-autofill {
   -webkit-box-shadow: 0 0 0 100px #fff inset;
-          box-shadow: 0 0 0 100px #fff inset;
+  box-shadow: 0 0 0 100px #fff inset;
 }
 /**
  * 1. Change the font styles in all browsers.
@@ -218,9 +218,9 @@ textarea {
   width: 100%;
   height: 1px;
   -webkit-transform: scaleY(0.5);
-          transform: scaleY(0.5);
+  transform: scaleY(0.5);
   -webkit-transform-origin: 0 0;
-          transform-origin: 0 0;
+  transform-origin: 0 0;
 }
 
 .border_b::before {
@@ -238,9 +238,9 @@ textarea {
   width: 1px;
   height: 100%;
   -webkit-transform: scaleX(0.5);
-          transform: scaleX(0.5);
+  transform: scaleX(0.5);
   -webkit-transform-origin: 0 0;
-          transform-origin: 0 0;
+  transform-origin: 0 0;
 }
 .border_r::after {
   left: auto;
@@ -255,9 +255,9 @@ textarea {
   width: 200%;
   height: 200%;
   -webkit-transform: scale(0.5);
-          transform: scale(0.5);
+  transform: scale(0.5);
   -webkit-transform-origin: left top;
-          transform-origin: left top;
+  transform-origin: left top;
 }
 
 .fl {
