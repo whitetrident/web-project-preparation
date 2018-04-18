@@ -98,8 +98,8 @@ axios.interceptors.response.use(
 )
 
 export default {
-   // 必选参数url，可选参数params
-   get(obj) {
+  // 必选参数url，可选参数params
+  get(obj) {
     const defaults = {
       isLoading: true,
       url: '#',
@@ -146,7 +146,9 @@ export default {
     const defaults = {
       isLoading: true,
       url: '#',
-      data: {}
+      data: {},
+      // 是否以application/x-www-form-urlencoded格式发送数据,默认是
+      isFormData: true
     }
     objectAssign(defaults, obj)
     if (defaults.isLoading) {
@@ -158,7 +160,7 @@ export default {
       axios({
         method: 'post',
         url: defaults.url,
-        data: qs.stringify(defaults.data),
+        data: defaults.isFormData ? qs.stringify(defaults.data) : defaults.data,
         cancelToken: new CancelToken(c => {
           cancel = c
         })
