@@ -61,9 +61,9 @@ if (options.extract) {
     use: loaders,
     publicPath: '../../', // 这里是/static/css/static/img/img@2x.c634efc.png 所以跳出两层../../； 注意配置这一部分，根据目录结构自由调整
     fallback: 'vue-style-loader'
-  });
+  })
 } else {
-  return ['vue-style-loader'].concat(loaders);
+  return ['vue-style-loader'].concat(loaders)
 }
 ```
 
@@ -81,7 +81,7 @@ new webpack.optimize.UglifyJsPlugin({
     pure_funcs: ['console.log']
   },
   sourceMap: false
-});
+})
 ```
 
 ---
@@ -92,14 +92,18 @@ new webpack.optimize.UglifyJsPlugin({
 
 ```js
 //让ajax携带cookie
-axios.defaults.withCredentials = true;
+axios.defaults.withCredentials = true
 //设置请求baseURL,仅开发环境用于代理
-axios.defaults.baseURL = '/api';
+axios.defaults.baseURL = '/api'
 //设置请求超时时间
-axios.defaults.timeout = 5000;
+axios.defaults.timeout = 5000
 //设置请求头
 axios.defaults.headers.post['Content-Type'] =
-  'application/x-www-form-urlencoded; charset=UTF-8';
+  'application/x-www-form-urlencoded; charset=UTF-8'
+// `validateStatus` 定义对于给定的HTTP 响应状态码是 resolve 或 reject  promise 。如果 `validateStatus` 返回 `true` (或者设置为 `null` 或 `undefined`)，promise 将被 resolve; 否则，promise 将被 rejecte
+axios.defaults.validateStatus = status => {
+  return status
+}
 ```
 
 ---
@@ -113,11 +117,11 @@ get 请求官方的两种写法,参数形式的，记得 params 要带上，post
 axios
   .get('/user?ID=12345')
   .then(function(response) {
-    console.log(response);
+    console.log(response)
   })
   .catch(function(error) {
-    console.log(error);
-  });
+    console.log(error)
+  })
 
 // Optionally the request above could also be done as
 axios
@@ -127,19 +131,130 @@ axios
     }
   })
   .then(function(response) {
-    console.log(response);
+    console.log(response)
   })
   .catch(function(error) {
-    console.log(error);
-  });
+    console.log(error)
+  })
 ```
 
 post 请求的参数数据格式默认不是 form-data,需要转码,官方的说明是引入 qs 来编码
 
 ```js
-import qs from 'qs';
+import qs from 'qs'
 //注意，这里的params又不用加params这个键了
-axios.post('/foo', qs.stringify({ bar: 123 }));
+axios.post('/foo', qs.stringify({ bar: 123 }))
 ```
 
+---
+
+## vue
+
+### 首屏加载动画
+
+```html
+<style>
+  .vux-loading {
+    z-index: 5000;
+    position: relative;
+  }
+
+  .weui-mask_transparent {
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+  }
+
+  .weui-toast {
+    position: fixed;
+    z-index: 5001;
+    width: 7.6em;
+    min-height: 7.6em;
+    top: 180px;
+    left: 50%;
+    margin-left: -3.8em;
+    background: rgba(17, 17, 17, 0.7);
+    text-align: center;
+    border-radius: 5px;
+    color: #FFFFFF;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    margin-left: 0!important;
+  }
+
+  .weui-loading {
+    margin: 30px 0 0;
+    width: 38px;
+    height: 38px;
+    vertical-align: baseline;
+    display: inline-block;
+    -webkit-animation: weuiLoading 1s steps(12, end) infinite;
+    animation: weuiLoading 1s steps(12, end) infinite;
+    background: transparent url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAiIGhlaWdodD0iMTIwIiB2aWV3Qm94PSIwIDAgMTAwIDEwMCI+PHBhdGggZmlsbD0ibm9uZSIgZD0iTTAgMGgxMDB2MTAwSDB6Ii8+PHJlY3Qgd2lkdGg9IjciIGhlaWdodD0iMjAiIHg9IjQ2LjUiIHk9IjQwIiBmaWxsPSIjRTlFOUU5IiByeD0iNSIgcnk9IjUiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAgLTMwKSIvPjxyZWN0IHdpZHRoPSI3IiBoZWlnaHQ9IjIwIiB4PSI0Ni41IiB5PSI0MCIgZmlsbD0iIzk4OTY5NyIgcng9IjUiIHJ5PSI1IiB0cmFuc2Zvcm09InJvdGF0ZSgzMCAxMDUuOTggNjUpIi8+PHJlY3Qgd2lkdGg9IjciIGhlaWdodD0iMjAiIHg9IjQ2LjUiIHk9IjQwIiBmaWxsPSIjOUI5OTlBIiByeD0iNSIgcnk9IjUiIHRyYW5zZm9ybT0icm90YXRlKDYwIDc1Ljk4IDY1KSIvPjxyZWN0IHdpZHRoPSI3IiBoZWlnaHQ9IjIwIiB4PSI0Ni41IiB5PSI0MCIgZmlsbD0iI0EzQTFBMiIgcng9IjUiIHJ5PSI1IiB0cmFuc2Zvcm09InJvdGF0ZSg5MCA2NSA2NSkiLz48cmVjdCB3aWR0aD0iNyIgaGVpZ2h0PSIyMCIgeD0iNDYuNSIgeT0iNDAiIGZpbGw9IiNBQkE5QUEiIHJ4PSI1IiByeT0iNSIgdHJhbnNmb3JtPSJyb3RhdGUoMTIwIDU4LjY2IDY1KSIvPjxyZWN0IHdpZHRoPSI3IiBoZWlnaHQ9IjIwIiB4PSI0Ni41IiB5PSI0MCIgZmlsbD0iI0IyQjJCMiIgcng9IjUiIHJ5PSI1IiB0cmFuc2Zvcm09InJvdGF0ZSgxNTAgNTQuMDIgNjUpIi8+PHJlY3Qgd2lkdGg9IjciIGhlaWdodD0iMjAiIHg9IjQ2LjUiIHk9IjQwIiBmaWxsPSIjQkFCOEI5IiByeD0iNSIgcnk9IjUiIHRyYW5zZm9ybT0icm90YXRlKDE4MCA1MCA2NSkiLz48cmVjdCB3aWR0aD0iNyIgaGVpZ2h0PSIyMCIgeD0iNDYuNSIgeT0iNDAiIGZpbGw9IiNDMkMwQzEiIHJ4PSI1IiByeT0iNSIgdHJhbnNmb3JtPSJyb3RhdGUoLTE1MCA0NS45OCA2NSkiLz48cmVjdCB3aWR0aD0iNyIgaGVpZ2h0PSIyMCIgeD0iNDYuNSIgeT0iNDAiIGZpbGw9IiNDQkNCQ0IiIHJ4PSI1IiByeT0iNSIgdHJhbnNmb3JtPSJyb3RhdGUoLTEyMCA0MS4zNCA2NSkiLz48cmVjdCB3aWR0aD0iNyIgaGVpZ2h0PSIyMCIgeD0iNDYuNSIgeT0iNDAiIGZpbGw9IiNEMkQyRDIiIHJ4PSI1IiByeT0iNSIgdHJhbnNmb3JtPSJyb3RhdGUoLTkwIDM1IDY1KSIvPjxyZWN0IHdpZHRoPSI3IiBoZWlnaHQ9IjIwIiB4PSI0Ni41IiB5PSI0MCIgZmlsbD0iI0RBREFEQSIgcng9IjUiIHJ5PSI1IiB0cmFuc2Zvcm09InJvdGF0ZSgtNjAgMjQuMDIgNjUpIi8+PHJlY3Qgd2lkdGg9IjciIGhlaWdodD0iMjAiIHg9IjQ2LjUiIHk9IjQwIiBmaWxsPSIjRTJFMkUyIiByeD0iNSIgcnk9IjUiIHRyYW5zZm9ybT0icm90YXRlKC0zMCAtNS45OCA2NSkiLz48L3N2Zz4=) no-repeat;
+    -webkit-background-size: 100% 100%;
+    background-size: 100%;
+  }
+
+  .weui-toast__content {
+    margin: 0 0 15px;
+    font-size: 16px;
+  }
+
+  @-webkit-keyframes weuiLoading {
+    0% {
+      transform: rotate3d(0, 0, 1, 0deg);
+    }
+    100% {
+      transform: rotate3d(0, 0, 1, 360deg);
+    }
+  }
+
+  @keyframes weuiLoading {
+    0% {
+      transform: rotate3d(0, 0, 1, 0deg);
+    }
+    100% {
+      transform: rotate3d(0, 0, 1, 360deg);
+    }
+  }
+</style>
+<div id="app">
+  <!-- 首屏加载动画 -->
+  <div class="weui-loading_toast vux-loading">
+    <div class="weui-mask_transparent"></div>
+    <div class="weui-toast">
+      <i class="weui-loading weui-icon_toast"></i>
+      <p class="weui-toast__content">加载中</p>
+    </div>
+  </div>
+</div>
+  <!-- built files will be auto injected -->
+```
+
+---
+
+### 标题更换指令
+```js
+// 注册标题更换全局指令
+Vue.directive('title', {
+  inserted (el, binding) {
+    document.title = binding.value
+    const iframe = document.createElement('iframe')
+    iframe.style.cssText = 'display: none; width: 0; height: 0;'
+    const listener = () => {
+      setTimeout(() => {
+        iframe.removeEventListener('load', listener)
+        setTimeout(() => {
+          document.body.removeChild(iframe)
+        }, 0)
+      }, 0)
+    }
+    iframe.addEventListener('load', listener)
+    document.body.appendChild(iframe)
+  }
+})
+```
 ---
