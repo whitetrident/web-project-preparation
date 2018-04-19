@@ -258,3 +258,43 @@ Vue.directive('title', {
 })
 ```
 ---
+
+### 解决弹窗滑动穿透
+
+最佳还是给body固定定位的方式，这里popShow是控制弹窗的开关，通过watch监听变化，打开弹窗了就把body已经卷去距离给记录，关闭弹窗就返还
+```css
+body.bodyCls {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+```
+```js
+//单个组件内
+export default{
+   data() {
+    return {
+      // 弹窗的开关
+      popShow: false,
+      // 滑动的记录值
+      scrollTop: null,
+    }
+  },
+  watch: {
+    popShow(newVal, oldVal) {
+      if (newVal) {
+        // 需要阻止滑动穿透的时候（遮罩层弹出）：
+        this.scrollTop = document.scrollingElement.scrollTop
+        document.body.classList.add('bodyCls')
+        document.body.style.top = -this.scrollTop + 'px'
+        return false
+      }
+      // 遮罩层隐藏后：
+      document.body.classList.remove('bodyCls')
+      document.scrollingElement.scrollTop = this.scrollTop
+    }
+  }
+}
+```
