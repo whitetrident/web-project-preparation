@@ -237,10 +237,11 @@ axios.post('/foo', qs.stringify({ bar: 123 }))
 ---
 
 ### 标题更换指令
+
 ```js
 // 注册标题更换全局指令
 Vue.directive('title', {
-  inserted (el, binding) {
+  inserted(el, binding) {
     document.title = binding.value
     const iframe = document.createElement('iframe')
     iframe.style.cssText = 'display: none; width: 0; height: 0;'
@@ -257,11 +258,13 @@ Vue.directive('title', {
   }
 })
 ```
+
 ---
 
 ### 解决弹窗滑动穿透
 
-最佳还是给body固定定位的方式，这里popShow是控制弹窗的开关，通过watch监听变化，打开弹窗了就把body已经卷去距离给记录，关闭弹窗就返还
+最佳还是给 body 固定定位的方式，这里 popShow 是控制弹窗的开关，通过 watch 监听变化，打开弹窗了就把 body 已经卷去距离给记录，关闭弹窗就返还
+
 ```css
 body.bodyCls {
   position: fixed;
@@ -271,15 +274,16 @@ body.bodyCls {
   right: 0;
 }
 ```
+
 ```js
 //单个组件内
-export default{
-   data() {
+export default {
+  data() {
     return {
       // 弹窗的开关
       popShow: false,
       // 滑动的记录值
-      scrollTop: null,
+      scrollTop: null
     }
   },
   watch: {
