@@ -130,3 +130,7 @@ Markdown实时预览
 ---
 ### [Syncing](https://marketplace.visualstudio.com/items?itemName=nonoroazoro.syncing)
 将每个设置与您自己的GitHub Gist同步。
+
+---
+### [gzip](http://www.softpedia.com/get/Compression-tools/WinGZip.shtml)
+gzip压缩神器
