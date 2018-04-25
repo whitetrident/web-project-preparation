@@ -134,3 +134,20 @@ Markdown实时预览
 ---
 ### [gzip](http://www.softpedia.com/get/Compression-tools/WinGZip.shtml)
 gzip压缩神器
+
+更强的gulp版，可以批量压缩
+[gulp-gzip](https://www.npmjs.com/package/gulp-gzip)
+
+简单的gulp-file配置:
+```js
+var gulp = require('gulp')
+var gzip = require('gulp-gzip')
+gulp.task('gzip', function() {
+  gulp
+    .src('./lib/*.*')
+    // 大于10kb的才压缩
+    .pipe(gzip({ threshold: 10240 }))
+    .pipe(gulp.dest('./dist'))
+})
+
+```
