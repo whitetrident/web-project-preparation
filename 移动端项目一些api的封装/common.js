@@ -250,7 +250,7 @@ function checkluhn(bankno) {
 }
 
 // 身份证号验证
-function checkID (ID) {
+function checkID(ID) {
   if (typeof ID !== 'string') return '合法身份证'
   var city = {
     11: '北京',
@@ -297,11 +297,7 @@ function checkID (ID) {
     Number(ID.substr(12, 2))
   var d = new Date(birthday)
   var newBirthday =
-    d.getFullYear() +
-    '/' +
-    Number(d.getMonth() + 1) +
-    '/' +
-    Number(d.getDate())
+    d.getFullYear() + '/' + Number(d.getMonth() + 1) + '/' + Number(d.getDate())
   var currentTime = new Date().getTime()
   var time = d.getTime()
   var arrInt = [7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2]
@@ -321,4 +317,23 @@ function checkID (ID) {
 
   // return city[ID.substr(0,2)]+","+birthday+","+(ID.substr(16,1)%2?" 男":"女")
   return false
+}
+
+// webp兼容判断
+function supportWebp() {
+  if (typeof window === 'undefined') return false
+  var support = true
+  var d = document
+  try {
+    var el = d.createElement('object')
+    el.type = 'image/webp'
+    el.style.visibility = 'hidden'
+    el.innerHTML = '!'
+    d.body.appendChild(el)
+    support = !el.offsetWidth
+    d.body.removeChild(el)
+  } catch (err) {
+    support = false
+  }
+  return support
 }
