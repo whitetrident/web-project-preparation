@@ -131,6 +131,8 @@ Markdown实时预览
 ### [Syncing](https://marketplace.visualstudio.com/items?itemName=nonoroazoro.syncing)
 将每个设置与您自己的GitHub Gist同步。
 
+## 打造最强编辑器，vscode插件
+
 ---
 ### [gzip](http://www.softpedia.com/get/Compression-tools/WinGZip.shtml)
 gzip压缩神器
@@ -151,3 +153,26 @@ gulp.task('gzip', function() {
 })
 
 ```
+
+### [weflow](https://weflow.io/)
+*一个高效、强大、跨平台的前端开发工作流工具*
+
+功能特性:
+* 自动化流程
+  * Less / Sass -> CSS 编译
+  * CSS Autoprefixer 前缀自动补全
+  * 自动生成图片 CSS 属性，width & height 等
+  * CSS cssnano 压缩
+  * CSS Sprite 雪碧图合成
+  * Retina @2x & @3x 自动生成适配
+  * Imagemin 图片压缩
+  * JS 合并压缩
+  * EJS 模版语言
+* 调试 & 部署
+  * 监听文件变动，自动刷新浏览器 (LiveReload)
+  * S/FTP 发布部署
+  * Zip 项目打包
+* 解决方案集成
+  * px -> rem 兼容适配方案
+  * 智能 WebP 解决方案
+  * 去缓存文件 Reversion (MD5) 解决方案
