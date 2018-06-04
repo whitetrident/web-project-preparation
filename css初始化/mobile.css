@@ -16,8 +16,6 @@ html {
   -webkit-user-select: none;
   user-select: none;
   touch-action: manipulation;
-  -webkit-text-size-adjust: none;
-  text-size-adjust: none;
 }
 
 body,
