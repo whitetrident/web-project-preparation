@@ -2,22 +2,22 @@
 ::after,
 ::before {
   -webkit-box-sizing: inherit;
-          box-sizing: inherit;
+  box-sizing: inherit;
 }
 
 html {
   -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   color: black;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
-    Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC',
+    'Helvetica Neue', STHeiti, 'Microsoft Yahei', Tahoma, Simsun, sans-serif;
   font-size: 12px;
   -ms-touch-action: manipulation;
-      touch-action: manipulation;
+  touch-action: manipulation;
   -webkit-text-size-adjust: none;
-     -moz-text-size-adjust: none;
-      -ms-text-size-adjust: none;
-          text-size-adjust: none;
+  -moz-text-size-adjust: none;
+  -ms-text-size-adjust: none;
+  text-size-adjust: none;
 }
 
 body,
@@ -34,9 +34,9 @@ body {
   background-color: #fff;
   margin: 0 auto;
   -webkit-text-size-adjust: 100%;
-     -moz-text-size-adjust: 100%;
-      -ms-text-size-adjust: 100%;
-          text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 em,
@@ -86,7 +86,7 @@ table {
 /* 输入框自动填充的背景色 */
 input:-webkit-autofill {
   -webkit-box-shadow: 0 0 0 100px #fff inset;
-          box-shadow: 0 0 0 100px #fff inset;
+  box-shadow: 0 0 0 100px #fff inset;
 }
 /**
  * 1. Change the font styles in all browsers.
@@ -124,7 +124,7 @@ button,
 [type='submit'] {
   -webkit-appearance: button;
   -moz-appearance: button;
-       appearance: button;
+  appearance: button;
 }
 
 /**
@@ -175,7 +175,7 @@ textarea {
   /*移动端文字溢出显示省略号*/
   overflow: hidden;
   -o-text-overflow: ellipsis;
-     text-overflow: ellipsis;
+  text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
@@ -183,7 +183,7 @@ textarea {
 .textEllOne {
   overflow: hidden;
   -o-text-overflow: ellipsis;
-     text-overflow: ellipsis;
+  text-overflow: ellipsis;
   white-space: nowrap;
 }
 /*css3实现1px边框*/
@@ -208,11 +208,11 @@ textarea {
   width: 100%;
   height: 1px;
   -webkit-transform: scaleY(0.5);
-      -ms-transform: scaleY(0.5);
-          transform: scaleY(0.5);
+  -ms-transform: scaleY(0.5);
+  transform: scaleY(0.5);
   -webkit-transform-origin: 0 0;
-      -ms-transform-origin: 0 0;
-          transform-origin: 0 0;
+  -ms-transform-origin: 0 0;
+  transform-origin: 0 0;
 }
 
 .border_b::before {
@@ -230,11 +230,11 @@ textarea {
   width: 1px;
   height: 100%;
   -webkit-transform: scaleX(0.5);
-      -ms-transform: scaleX(0.5);
-          transform: scaleX(0.5);
+  -ms-transform: scaleX(0.5);
+  transform: scaleX(0.5);
   -webkit-transform-origin: 0 0;
-      -ms-transform-origin: 0 0;
-          transform-origin: 0 0;
+  -ms-transform-origin: 0 0;
+  transform-origin: 0 0;
 }
 .border_r::after {
   left: auto;
@@ -249,11 +249,11 @@ textarea {
   width: 200%;
   height: 200%;
   -webkit-transform: scale(0.5);
-      -ms-transform: scale(0.5);
-          transform: scale(0.5);
+  -ms-transform: scale(0.5);
+  transform: scale(0.5);
   -webkit-transform-origin: left top;
-      -ms-transform-origin: left top;
-          transform-origin: left top;
+  -ms-transform-origin: left top;
+  transform-origin: left top;
 }
 
 .fl {
