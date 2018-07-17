@@ -153,6 +153,7 @@ Markdown 实时预览
 ### <a href="https://marketplace.visualstudio.com/items?itemName=HookyQR.minify" target="_blank">minify</a>
 
 使用命令进行 html、css、js 压缩混淆，并（可选）在保存时重新缩小。
+![minify](./img/minify.gif)
 
 ---
 
