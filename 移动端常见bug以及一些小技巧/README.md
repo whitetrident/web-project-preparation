@@ -208,6 +208,8 @@ document.writeln(navigator.userAgent)
 
 ---
 
+### 移动端兼容
+
 ```css
 a,
 img {
@@ -299,16 +301,15 @@ select:-webkit-autofill {
 
 ---
 
-### ios的input设disabled之后文字颜色变灰
+### ios 的 input 设 disabled 之后文字颜色变灰
 
 ```css
-input:disabled{  
-    opacity: 1;
-    color: #333;
-    -webkit-text-fill-color: #333;
+input:disabled {
+  opacity: 1;
+  color: #333;
+  -webkit-text-fill-color: #333;
 }
 ```
-
 
 ---
 
@@ -470,6 +471,8 @@ if (window.devicePixelRatio && devicePixelRatio >= 2) {
 ### input 的 placeholder 会出现文本位置偏上的情况：
 
 PC 端设置 line-height 等于 height 能够对齐，而移动端仍然是偏上，解决是设置 line-height：normal，（stackoverflow 也可查到这种解决办法）。
+
+---
 
 ### input 使用定位后苹果上 placeholder 显示不全：
 
@@ -815,7 +818,8 @@ a {
 
 ### 控制台打印增加样式
 
-不懂的学习下es6的模板字符串
+不懂的学习下 es6 的模板字符串
+
 ```js
 console.log(
   `%c 新的商城 %c ${new Date()} %c`,
