@@ -299,6 +299,19 @@ select:-webkit-autofill {
 
 ---
 
+### ios的input设disabled之后文字颜色变灰
+
+```css
+input:disabled{  
+    opacity: 1;
+    color: #333;
+    -webkit-text-fill-color: #333;
+}
+```
+
+
+---
+
 ### 获取 url？后面的参数
 
 ```javascript
