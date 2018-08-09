@@ -828,3 +828,19 @@ console.log(
   'background:transparent'
 )
 ```
+
+---
+
+### 解决ios跳转出去，点击返回页面不刷新的问题
+```js
+// 解决ios跳转出去，点击返回页面不刷新的问题
+var isPageHide = false
+window.addEventListener('pageshow', function () {
+  if (isPageHide) {
+    window.location.reload()
+  }
+})
+window.addEventListener('pagehide', function () {
+  isPageHide = true
+})
+```

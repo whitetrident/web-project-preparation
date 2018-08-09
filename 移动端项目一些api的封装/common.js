@@ -534,3 +534,16 @@ function ajaxErr(err) {
   // 错误的提示，这里可以换成自己的toast、alert动画
   alert(err.message)
 }
+
+szy.ready(function() {
+  // 解决ios跳转出去，点击返回页面不刷新的问题
+  var isPageHide = false
+  window.addEventListener('pageshow', function() {
+    if (isPageHide) {
+      window.location.reload()
+    }
+  })
+  window.addEventListener('pagehide', function() {
+    isPageHide = true
+  })
+})
