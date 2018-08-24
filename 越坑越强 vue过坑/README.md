@@ -22,12 +22,16 @@ webpack.base.conf.js 中，配置 babel-loadel
 
 ### 让其他设备访问到开发环境的项目
 
-首先知道自己本地 ip 地址，然后在 config 目录下 index.js 文件，配置
+在 build 目录下 webpack.dev.conf.js 文件，修改 host 配置
 
 ```js
-host:'192.168.0.54',
-port: 9494
+const os = require('os')
+const network = os.networkInterfaces()
+const IP = network[Object.keys(network)[0]][1].address
+const HOST = IP
 ```
+
+修改后本地启动 url 就是用自己 ip 打开的了，方便复制后给多设备访问
 
 ---
 
