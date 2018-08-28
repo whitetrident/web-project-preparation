@@ -816,6 +816,10 @@ a {
 
 ---
 
+### 安卓低版本 flex 的子元素必须块级
+
+---
+
 ### 控制台打印增加样式
 
 不懂的学习下 es6 的模板字符串
@@ -831,16 +835,17 @@ console.log(
 
 ---
 
-### 解决ios跳转出去，点击返回页面不刷新的问题
+### 解决 ios 跳转出去，点击返回页面不刷新的问题
+
 ```js
 // 解决ios跳转出去，点击返回页面不刷新的问题
 var isPageHide = false
-window.addEventListener('pageshow', function () {
+window.addEventListener('pageshow', function() {
   if (isPageHide) {
     window.location.reload()
   }
 })
-window.addEventListener('pagehide', function () {
+window.addEventListener('pagehide', function() {
   isPageHide = true
 })
 ```
