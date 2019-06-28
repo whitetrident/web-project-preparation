@@ -15,3 +15,5 @@ yarn-error.log*
 .project
 *.woff
 常用工具/jQuery1.11.3_20150618.chw
+images-convert-min/build
+images-convert-min/src
