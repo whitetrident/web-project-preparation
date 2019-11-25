@@ -207,20 +207,17 @@ var szy = {
    * @param {Number} b
    * @returns a*b的值
    */
-  mul: function(a, b) {
-    var c = 0
-    var d = a.toString()
-    var e = b.toString()
-    try {
-      c += d.split('.')[1].length
-    } catch (f) {}
-    try {
-      c += e.split('.')[1].length
-    } catch (f) {}
-    return (
-      (Number(d.replace('.', '')) * Number(e.replace('.', ''))) /
-      Math.pow(10, c)
-    )
+  mul: function(...costArr) {
+    var _productCost = 1
+  	var multiple = 0
+  	for (var index = 0; index < costArr.length; index++) {
+    	var costStr = costArr[index].toString()
+    	multiple += costStr.split('.')[1].length
+    	_productCost *= Number(costStr.replace('.', ''))
+  	}
+  	return (
+    	parseFloat(_productCost / Math.pow(10, multiple)).toFixed(2)
+  	)
   },
 
   /**
