@@ -98,16 +98,6 @@ MD 文档阅读工具
 
 ---
 
-## 打造最强编辑器，vscode 插件
-
-### <a href="https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-rename-tag" target="_blank">Auto Rename Tag</a>
-
-自动重新命名配对的 HTML / XML 标签
-
-![Auto Rename Tag](./img/auto-rename-tag.gif)
-
----
-
 ### <a href="https://marketplace.visualstudio.com/items?itemName=mrmlnc.vscode-autoprefixer" target="_blank">Autoprefixer</a>
 
 解析 CSS 并自动添加供应商前缀。
