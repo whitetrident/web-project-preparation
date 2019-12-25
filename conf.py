@@ -3,14 +3,14 @@
 """
 
 # For Maverick
-site_prefix = "/web-project-preparation/"
+site_prefix = "/"
 source_dir = "../src/"
 build_dir = "../dist/"
 index_page_size = 10
 archives_page_size = 20
 enable_jsdelivr = {
     "enabled": False,
-    "repo": ""
+    "repo": "whitetrident/web-project-preparation@gh-pages"
 }
 
 # 站点设置
