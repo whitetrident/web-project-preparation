@@ -866,3 +866,9 @@ window.addEventListener('pagehide', function() {
   isPageHide = true
 })
 ```
+
+### 解决同一元素上圆角与transform共存导致的白边
+
+```css
+-webkit-mask-image: -webkit-radial-gradient(white, black);
+```
