@@ -639,7 +639,7 @@ input type 设 tel
 
 ---
 
-### 解决 ios 触摸滑动卡顿：
+### 解决 ios 触摸滑动卡顿(该属性在ios12已经在overflow: auto属性上默认有，但为了向下兼容还得加)：
 
 ```css
  {
