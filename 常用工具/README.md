@@ -74,31 +74,6 @@
 
 ---
 
-## gulp 插件
-
----
-
-### <a href="http://www.softpedia.com/get/Compression-tools/WinGZip.shtml/" target="_blank">gzip</a>
-
-gzip 压缩神器
-
-更强的 gulp 版，可以批量压缩
-[gulp-gzip](https://www.npmjs.com/package/gulp-gzip)
-
-简单的 gulp-file 配置:
-
-```js
-var gulp = require('gulp')
-var gzip = require('gulp-gzip')
-gulp.task('gzip', function() {
-  gulp
-    .src('./lib/*.*')
-    // 大于10kb的才压缩
-    .pipe(gzip({ threshold: 10240 }))
-    .pipe(gulp.dest('./dist'))
-})
-```
-
 ### <a href="https://weflow.io/" target="_blank">weflow</a>
 
 _一个高效、强大、跨平台的前端开发工作流工具_
