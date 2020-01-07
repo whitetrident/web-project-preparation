@@ -5,7 +5,7 @@ var del = require('del')
 var runSequence = require('run-sequence')
 
 gulp.task('del', function() {
-  del('build') // 构建前先删除dist文件里的旧版本
+  return del('build') // 构建前先删除dist文件里的旧版本
 })
 //revision 用来增加散列值和生成rev.manifest.json
 gulp.task('revCss', function() {
@@ -40,8 +40,4 @@ gulp.task('replace', function() {
     )
     .pipe(gulp.dest('build/view'))
 })
-gulp.task('default', function() {
-  runSequence('del', 'move', ['revCss', 'revJs'], 'replace', function() {
-    console.log('success')
-  })
-})
+gulp.task('default', gulp.series('del', 'move', gulp.parallel('revCss', 'revJs'), 'replace'))
