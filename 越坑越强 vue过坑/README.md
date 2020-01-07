@@ -4,22 +4,6 @@
 
 ## vue-cli、webpack 相关
 
-### vue-cli 构建的项目在打包后良好，开发环境低版本的浏览器白屏
-
-这是因为"webpack-dev-server"版本更新后引入新模块的缘故，在
-webpack.base.conf.js 中，配置 babel-loadel
-**注:新版的 vue-cli 中已经解决这个问题**
-
-```js
-{
-  test: /\.js$/,
-  loader: 'babel-loader',
-  include: [resolve('src'), resolve('test'), resolve('/node_modules\/webpack-dev-server/')]
-}
-```
-
----
-
 ### 让其他设备访问到开发环境的项目
 
 在 build 目录下 webpack.dev.conf.js 文件，修改 host 配置

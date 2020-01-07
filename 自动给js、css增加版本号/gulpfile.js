@@ -2,7 +2,6 @@ var gulp = require('gulp')
 var rev = require('gulp-rev')
 var revColletor = require('gulp-rev-collector')
 var del = require('del')
-var runSequence = require('run-sequence')
 
 gulp.task('del', function() {
   return del('build') // 构建前先删除dist文件里的旧版本
